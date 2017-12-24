@@ -2,7 +2,7 @@
 
 Migrate the table schema, rename object prefix to partition key=value and add partitions.
 
-![overview](doc/overview.png)
+![overview](https://github.com/sambaiz/athena-admin/blob/master/doc/overview.png?raw=true)
 
 ```
 $ npm install athena-admin
