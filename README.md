@@ -79,7 +79,7 @@ Replaces object located in prePartitionLocation to srcLocation with partition ke
 If you need to change the key before this operation, use matchedHandler.
 The following example is changing the UTC string to that of TimeZone.
 (e.g. `2017/12/01/19` => `2017/12/02/04`)
-There is full codes in /sample.
+There are full codes in /sample.
 
 ```
 const utcToTZ = (matched, objKey, table) => {
@@ -111,3 +111,7 @@ If there is differences from the previous saved definition in S3, create/drop th
 ### partition()
 
 Just run `MSCK REPAIR TABLE`. Partition is automatically detected and added by objects' key=value prefix.
+
+## Article
+
+[Athenaのmigrationやpartitionするathena-managerを作った - sambaiz-net](https://www.sambaiz.net/article/145/)
