@@ -2,6 +2,8 @@
 
 Migrate the table schema, rename object prefix to partition key=value and add partitions.
 
+![overview](doc/overview.png)
+
 ```
 $ npm install athena-admin
 ```

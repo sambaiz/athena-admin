@@ -1,6 +1,6 @@
 {
   "name": "athena-admin",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "main": "lib/index.js",
   "scripts": {
     "precommit": "lint-staged",
