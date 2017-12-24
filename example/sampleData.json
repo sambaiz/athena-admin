@@ -1,0 +1,14 @@
+{"user_id":1,"value":{"score":1,"category":"a"}}
+{"user_id":2,"value":{"score":2,"category":"a"}}
+{"user_id":3,"value":{"score":4,"category":"b"}}
+{"user_id":4,"value":{"score":3,"category":"b"}}
+{"user_id":3,"value":{"score":4,"category":"b"}}
+{"user_id":2,"value":{"score":1,"category":"a"}}
+{"user_id":4,"value":{"score":5,"category":"a"}}
+{"user_id":6,"value":{"score":1,"category":"c"}}
+{"user_id":7,"value":{"score":2,"category":"c"}}
+{"user_id":3,"value":{"score":4,"category":"b"}}
+{"user_id":4,"value":{"score":3,"category":"b"}}
+{"user_id":7,"value":{"score":4,"category":"b"}}
+{"user_id":5,"value":{"score":1,"category":"a"}}
+{"user_id":1,"value":{"score":5,"category":"a"}}

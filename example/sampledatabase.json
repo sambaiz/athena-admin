@@ -1,0 +1,27 @@
+{
+  "general": {
+    "athenaRegion": "ap-northeast-1",
+    "databaseName": "sampledatabase",
+    "saveDefinitionLocation": "s3://sambaiz-datasrc/sampledatabase.json"
+  },
+  "tables": {
+    "sample_data7": {
+      "columns": {
+      "user_id": "int",
+      "value": "struct<score:int,category:string>"
+      },
+      "srcLocation": "s3://sambaiz-datasrc/sampledata/partition/",
+      "partition": {
+        "prePartitionLocation": "s3://sambaiz-datasrc/sampledata/prePartition/",
+        "regexp": "(\\d{4})/(\\d{2})/(\\d{2})/(\\d{2})",
+        "keys": [
+          {
+            "name": "dt",
+            "type": "string",
+            "format": "{1}-{2}-{3}/{4}"
+          }
+        ]
+      }
+    }
+  }
+}
