@@ -1,6 +1,6 @@
 {
   "name": "athena-admin",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "main": "lib/index.js",
   "scripts": {
     "precommit": "lint-staged",
@@ -23,7 +23,8 @@
     "url": "https://github.com/sambaiz/athena-admin/issues"
   },
   "dependencies": {
-    "athena-client": "^1.0.8"
+    "athena-client": "^1.0.8",
+    "aws-sdk": "^2.175.0"
   },
   "devDependencies": {
     "babel": "^6.23.0",

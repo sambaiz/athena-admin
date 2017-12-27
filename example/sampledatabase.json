@@ -7,8 +7,11 @@
   "tables": {
     "sample_data7": {
       "columns": {
-      "user_id": "int",
-      "value": "struct<score:int,category:string>"
+        "user_id": "int",
+        "value": {
+          "score": "int",
+          "category": "string"
+        }
       },
       "srcLocation": "s3://sambaiz-datasrc/sampledata/partition/",
       "partition": {

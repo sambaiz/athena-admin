@@ -4,7 +4,7 @@ export const dropTableIfExistsQuery = (databaseName, tableName) => {
 
 export const createTableQuery = (databaseName, tableName, columns, partitionKeys, location) => {
   const columnsStr = Object.keys(columns)
-    .map((c) => `${c} ${columns[c]}`)
+    .map((c) => `${c} ${buildTypeName(columns[c])}`)
     .join(',');
   const partitionsStr = partitionKeys.map((key) => `${key.name} ${key.type}`).join(',');
   return `
@@ -13,4 +13,14 @@ export const createTableQuery = (databaseName, tableName, columns, partitionKeys
   ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
   LOCATION '${location}';
   `;
+};
+
+const buildTypeName = (typeDef) => {
+  if (typeof typeDef !== 'object') {
+    return typeDef;
+  }
+  const structContents = Object.keys(typeDef).map((t) => {
+    return `${t}:${buildTypeName(typeDef[t])}`;
+  }).join(',');
+  return `struct<${structContents}>`;
 };
