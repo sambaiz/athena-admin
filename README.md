@@ -32,7 +32,7 @@ Describe the database definition in the following format.
     "sample_data": {
       "columns": {
         "user_id": "int",
-        "value": {
+        "some_value": {
           "score": "int",
           "category": "string"
         } /* same as "struct<score:int,category:string>" */

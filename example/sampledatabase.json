@@ -8,7 +8,7 @@
     "sample_data7": {
       "columns": {
         "user_id": "int",
-        "value": {
+        "some_value": {
           "score": "int",
           "category": "string"
         }
