@@ -1,6 +1,6 @@
 # athena-admin
 
-Migrate the table schema, rename object prefix to partition key=value and add partitions.
+Migrate the table schema, replace objects so that it has partition key=value prefix and add partitions.
 
 ![overview](https://github.com/sambaiz/athena-admin/blob/master/doc/overview.png?raw=true)
 
@@ -32,10 +32,15 @@ Describe the database definition in the following format.
     "sample_data": {
       "columns": {
         "user_id": "int",
-        "some_value": {
+        "some_value": { /* = "struct<score:int,category:string>" */
           "score": "int",
           "category": "string"
-        } /* same as "struct<score:int,category:string>" */
+        },
+        "some_array1": ["string"], /* = array<string> */
+        "some_array2": [{ /* = array<struct<aaa:int,bbb:string>> */
+          "aaa": "int",
+          "bbb": "string"
+        }]
       },
       "srcLocation": "s3://src/location/",
       "partition": {
@@ -68,7 +73,7 @@ Describe the database definition in the following format.
 
 | Field  | Description |
 |:-----------|:------------|
-| columns | Column name and type pairs. Struct can also be described as a json object |
+| columns | Column name and type pairs. struct<> and array<> can also be described as a json object |
 | srcLocation | Location to be refferenced by Athena |
 | partition | Partition detectable by key=value prefix.<br>If objects' location don't have partition's key=value prefix, you can replace from prePartitionLocation to srcLocation by `replaceObjects()`. This is for `partition()` automatically detecting and adding partitions with keys.key as its key and keys.format as its value of keys.type as its type.<br>keys.format's {n} corresponds to the group of regexp. (e.g. `s3://pre/partition/2017/12/01/00/aaa.png` => `[2017/12/01, 2017, 12, 01]`) |
 
@@ -109,7 +114,7 @@ await admin.replaceObjects(false, utcToTZ);
 
 ### migrate()
 
-If there is differences from the previous saved definition in S3, create/drop the table or update the schema.
+If there are differences from the previous saved definition in S3, create/drop the table or update the schema.
 
 ### partition()
 

@@ -19,6 +19,9 @@ const buildTypeName = (typeDef) => {
   if (typeof typeDef !== 'object') {
     return typeDef;
   }
+  if (Array.isArray(typeDef)) {
+    return `array<${buildTypeName(typeDef[0])}>`;
+  }
   const structContents = Object.keys(typeDef).map((t) => {
     return `${t}:${buildTypeName(typeDef[t])}`;
   }).join(',');

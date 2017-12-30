@@ -8,10 +8,15 @@
     "sample_data7": {
       "columns": {
         "user_id": "int",
-        "some_value": {
+        "some_struct": {
           "score": "int",
           "category": "string"
-        }
+        },
+        "some_array1": ["string"],
+        "some_array2": [{
+          "aaa": "int",
+          "bbb": "string"
+        }]
       },
       "srcLocation": "s3://sambaiz-datasrc/sampledata/partition/",
       "partition": {
