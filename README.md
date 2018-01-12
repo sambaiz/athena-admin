@@ -73,7 +73,7 @@ Describe the database definition in the following format.
 
 | Field  | Description |
 |:-----------|:------------|
-| columns | Column name and type pairs. struct<> and array<> can also be described as a json object |
+| columns | Column name and type pairs. struct<> and array<> can also be described as a json object so can describe this by converting the actual data values to the type. |
 | srcLocation | Location to be refferenced by Athena |
 | partition | Partition detectable by key=value prefix.<br>If objects' location don't have partition's key=value prefix, you can replace from prePartitionLocation to srcLocation by `replaceObjects()`. This is for `partition()` automatically detecting and adding partitions with keys.key as its key and keys.format as its value of keys.type as its type.<br>keys.format's {n} corresponds to the group of regexp. (e.g. `s3://pre/partition/2017/12/01/00/aaa.png` => `[2017/12/01, 2017, 12, 01]`) |
 
